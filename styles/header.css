@@ -1,0 +1,295 @@
+.cabeçalho__menu-hamburguer /*configuração do span*/
+{
+    width: 24px;
+    height: 24px;
+    background-image: url("../img/menu.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+}
+
+.cabeçalho 
+{
+    background-color: var(--branco);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    position: relative;
+     
+}
+
+.container {
+    display: flex;
+     align-items: center;
+     
+}
+
+.container__imagem {
+    padding: 1.1em;
+}
+.container__imagem1 {
+    padding: 0.4em;
+}
+
+.lista__menu{
+    display:none;
+    position: absolute;
+    top: 100%;
+    width: 60vw;
+    list-style-type: none;
+ 
+}
+
+
+.lista__menu__titulo {
+    color: var(--laranja);
+    font-weight: 700;
+ }
+
+ .container__botao{
+    display: none;
+ }
+
+.container__botao:checked~.lista__menu{
+    display:block;
+}
+
+.lista__menu__titulo , .lista__menu__item{
+    background-color: var(--branco);
+    padding:1em;
+}
+
+.lista__menu__link{
+    background: var(--azul-degrade); /* cor de fundo */
+    -webkit-background-clip: text; /* compatibilidade outros navegadores */
+    -webkit-text-fill-color: transparent; /* compatibilidade outros navegadores */
+    background-clip: text; /* aplica a cor de fundo somente onde tem texto */
+    text-transform: uppercase;   /* transforma o texto em maiuscula */
+}
+
+.container__botao:checked~.container__rotulo>.cabeçalho__menu-hamburguer{
+    background-image: url("../img/menuaberto.svg");
+}
+
+.container__botao:checked~.container__rotulo {
+    background: var(--azul-degrade);
+}
+
+/*______________________________________MEDIA QUERIES _____________________________________________*/
+
+.container__titulo {
+    display: none;
+}
+
+.opçoes {
+    display: none;
+}
+
+.container__texto {
+    display: none;
+}
+
+
+/*______________________________________MEDIA QUERIES TABLET__________________________________________*/
+
+
+
+@media screen and (min-width:1024px){
+
+    .container__titulo,
+    .container__titulo--negrito {
+        font-family: var(--fonte-secundario);
+        font-size: 30px;
+    }
+    .container__titulo {
+        font-weight: 400;
+        display: block;
+    }
+    .container__titulo--negrito {
+        font-weight: 700;
+    }
+
+    .opçoes {
+        display: flex;
+    }
+
+    .opçoes__item {
+        padding: 0 1em;
+        text-transform: uppercase;
+    }
+
+    .opçoes__link {
+        text-decoration: none;
+        color: var(--preto);
+    }
+    
+    .container__imagem-transparente{
+        display: none;
+    }
+
+    .cabeçalho__menu-hamburguer {
+        display: none;
+    }
+
+    .opçoes__botao:checked~.lista__menu {
+        display: block;
+        width: auto;
+    }
+
+    .opçoes__botao{
+        display: none;
+    }
+
+    .opçoes__botao:checked~.opçoes__rotulo>.opçoes__item {
+        background: var(--azul-degrade);
+        color: var(--branco);
+
+    }
+    
+    .opçoes__item {
+        padding:2em 1em;
+      
+    }
+      
+    .lista__menu__item:hover{
+        background-color: var(--azul-degrade);
+    }
+
+    .lista__menu__item:hover>.lista__menu__link{
+        -webkit-text-fill-color: var(--branco);
+        text-decoration: none;
+    }
+
+}
+
+/*______________________________________MEDIA QUERIES DESKTOP_____________________________________________*/
+
+
+@media screen and (min-width: 1728px) {
+    
+    .container__link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--preto);
+    }
+
+    .cabeçalho {
+        padding: 0 2em;
+    }
+
+    .opçoes {
+        margin-right: auto;
+        margin-left: 3em;
+    }
+
+    .container__texto {
+        display: block;
+    }
+
+
+}
+
+
+
+
+
+/*________________________________________________________________________________________________________*/
+/* PASSO A PASSO MENU HAMBURGUER
+
+___________________No HMTL___________________
+
+1° Criamos uma tag <span> com duas classes, uma para a tag e outra para a imagem que sera atirbuida a seu backgroud >> 
+<span class="cabeçalho__menu-hamburguer container__imagem"></span>( elemento para criação do menu amburguer )
+
+2° Criamos uma lista <ui> e sua classe e os itens da lista <li> tambem com suas respectivas classes.(lista do menu hamburguer)
+            <ui class="lista__menu">
+                <li class="lista__menu__titulo">Categorias</li>
+                <li class="lista__menu__item"><a href="#" class="lista__menu__link">PROGRAMAÇÃO</a></li>
+                <li class="lista__menu__item"><a href="#" class="lista__menu__link">FRONT-END</a></li>
+                <li class="lista__menu__item"><a href="#" class="lista__menu__link">INFRAESTRUTURA</a></li>
+                <li class="lista__menu__item"><a href="#" class="lista__menu__link">BUSINES</a></li>
+                <li class="lista__menu__item"><a href="#" class="lista__menu__link">DESIGN & UX</a></li>
+            </ui>
+
+3° Criamos uma <input> (nesse exemplo checkbox) com um id atribuido(nosso elemento de controle), após criamos uma <label>
+associando nosso <span> a <input> atravez da <label>(label for="id")para controle da mesma. O <span> deve ficar dentro da <label>
+(elemento de controle para controlar a lista )
+            <input type="checkbox" id="menu" class="container__botao">
+            <label for="menu">    
+                <span class="cabeçalho__menu-hamburguer container__imagem"></span>
+            </label>
+
+ ___________________No CSS___________________
+
+ 4° Configuramos a estrutura <span> para deixa-la com a imagem de fundo do menu hamburguer.
+ {
+    width: 24px;
+    height: 24px;
+    background-image: url("../img/menu.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+}
+.container__imagem {
+    padding: 1.1em;
+}
+
+
+5° Agora escondemos a lista e o checkbox para que eles não fiquem sempre visiveis utilizando a propriedade display:none;
+lembrando que a lista e a input forma associados no 3° passo.
+.lista__menu{
+    display:none;
+    position: absolute;
+    top: 100%;
+    width: 60vw;
+    list-style-type: none;
+ 
+}
+ .container__botao{
+    display: none;
+ }
+
+
+6° Agora posicionamos a nossa lista abaixo do cabeçalho com a propriedade position, que nos permite posicionar um 
+elemento filho em relação ao pai, desde que o elemento pai não tenha um posição static(default do css), mudamos a posição 
+do cabeçalho para relative e assim podemos mudar a posição da lista para posiciona-la abaixo do cabeçalho, usando as propriedades
+potion: absolut; e top:100%;
+.cabeçalho 
+{
+    background-color: var(--branco);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    position: relative;    
+}
+.lista__menu{
+    display:none;
+    position: absolute;
+    top: 100%;
+    width: 60vw;
+    list-style-type: none;
+}
+
+7° Agora utilizamos o operador ( ~ ) para indicar uma interção da classe container__botão que se trata do checkbox, para que
+ quando checado ( container__botao:checked ) realizar a alterações na classe .lista__menu mudando seu display para block fazendo
+ assim que a lista apareça novamente.
+
+.container__botao:checked~.lista__menu{
+    display:block;
+}
+
+*/
+
+
+
+
+
+
+
+
+
+
+

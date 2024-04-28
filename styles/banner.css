@@ -1,0 +1,88 @@
+.banner{
+    background: var(--azul-degrade);
+    color: var(--branco);
+    text-align: center;
+    padding: 2em;
+    
+}
+
+.banner__titulo{
+    font-size: 18px;
+    font-weight: 700;
+    font-family: var(--fonte-principal);
+}
+
+.banner__texto{
+    font-weight: 500;
+    margin: 1em 0;
+}
+
+.banner__pesquisa{
+    background-color: transparent;
+    border: 1px solid var(--branco);
+    border-radius: 24px;
+    padding: 0.9em 2em;
+    width: 100%;
+}
+
+.banner__pesquisa::placeholder /* configurando menssagem de fundo do input */
+{
+    font-family: var(--fonte-principal);
+    font-size: 14px;
+    font-weight: 400;
+    background: url("../img/lupa.svg");
+    background-repeat: no-repeat;
+    text-align: center;
+    background-position: 15% 0%;
+    color: var(--branco);
+    padding-inline: 4em;
+}
+
+/* ______________________ MEDIA QUERIES TABLET ____________________________________*/
+
+@media screen and (min-width: 1024px) {
+    .banner__titulo {
+        font-size: 36px;
+    }
+
+    .banner__pesquisa {
+        width: 50%;
+    }
+
+    .banner__pesquisa::placeholder {
+        background-position: 5em;
+    }
+
+
+}
+
+
+/* ______________________ MEDIA QUERIES DESKTOP ____________________________________*/
+
+@media screen and (min-width: 1728px) {
+    .banner__pesquisa {
+        width: 35%;
+    }
+    .banner__pesquisa::placeholder {
+        background-position: 10em;
+    }
+
+    .banner {
+        padding: 6em 0;
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
